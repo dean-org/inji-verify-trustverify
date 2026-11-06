@@ -131,7 +131,7 @@ class VerificationUtilsTest {
 
     @Test
     @DisplayName("Should throw exception when SecurityUtils throws exception")
-    void verifyRsaSignature2018_SecurityUtilsThrowsException_PropagatesException() {
+    void verifyRsaSignature2018_SecurityUtilsThrowsException_PropagatesException() throws Exception {
         JSONObject proofObject = new JSONObject();
         proofObject.put(Constants.KEY_VERIFICATION_METHOD, "invalid-pem");
         proofObject.put(Constants.KEY_JWS, "test.jwt.token");
@@ -204,7 +204,7 @@ class VerificationUtilsTest {
 
     @Test
     @DisplayName("Should throw ParseException for malformed JWT in Ed25519 verification")
-    void verifyEd25519Signature_MalformedJwt_ThrowsParseException() {
+    void verifyEd25519Signature_MalformedJwt_ThrowsParseException() throws Exception{
         JSONObject proofObject = new JSONObject();
         proofObject.put(Constants.KEY_JWS, "not.a.valid.jwt.format");
 
@@ -290,7 +290,7 @@ class VerificationUtilsTest {
 
     @Test
     @DisplayName("Should throw exception when Ed25519 proof object is missing JWS key")
-    void verifyEd25519Signature_MissingJwsKey_ThrowsException() {
+    void verifyEd25519Signature_MissingJwsKey_ThrowsException() throws Exception {
         JSONObject proofObject = new JSONObject();
 
         assertThrows(Exception.class, () -> {
@@ -300,7 +300,7 @@ class VerificationUtilsTest {
 
     @Test
     @DisplayName("Should handle null proof object gracefully")
-    void verifyRsaSignature2018_NullProofObject_ThrowsException() {
+    void verifyRsaSignature2018_NullProofObject_ThrowsException() throws Exception {
         assertThrows(Exception.class, () -> {
             VerificationUtils.verifyRsaSignature2018(null);
         });
@@ -308,7 +308,7 @@ class VerificationUtilsTest {
 
     @Test
     @DisplayName("Should handle null proof object in Ed25519 verification")
-    void verifyEd25519Signature_NullProofObject_ThrowsException() {
+    void verifyEd25519Signature_NullProofObject_ThrowsException() throws Exception{
         assertThrows(Exception.class, () -> {
             VerificationUtils.verifyEd25519Signature(null);
         });
