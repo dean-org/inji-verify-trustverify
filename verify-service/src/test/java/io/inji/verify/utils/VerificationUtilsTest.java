@@ -272,7 +272,7 @@ class VerificationUtilsTest {
 
     @Test
     @DisplayName("Should throw exception when proof object is missing required keys")
-    void verifyRsaSignature2018_MissingKeys_ThrowsException() {
+    void verifyRsaSignature2018_MissingKeys_ThrowsException() throws Exception {
         JSONObject proofObjectMissingVM = new JSONObject();
         proofObjectMissingVM.put(Constants.KEY_JWS, "test.jwt.token");
 
