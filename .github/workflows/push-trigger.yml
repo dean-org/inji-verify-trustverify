@@ -14,6 +14,7 @@ on:
       - develop
       - MOSIP*
       - feature/issuer-verification
+      
 
 jobs:
   build-dockers-inji-verify:
